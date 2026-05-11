@@ -155,7 +155,7 @@ img { max-width: 100%; display: block; }
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 140px 24px 80px;
+  padding: 110px 24px 60px;
   background: var(--blue-dark);
   position: relative;
   overflow: hidden;
@@ -201,22 +201,22 @@ img { max-width: 100%; display: block; }
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--white-80);
-  margin-bottom: 32px;
-}
-
-.hero-title {
-  font-size: clamp(3rem, 6vw, 5.5rem);
-  font-weight: 800;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
   margin-bottom: 24px;
 }
 
+.hero-title {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+
 .hero-subtitle {
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   color: var(--white-60);
   max-width: 640px;
-  margin-bottom: 40px;
+  margin-bottom: 32px;
   line-height: 1.6;
 }
 
