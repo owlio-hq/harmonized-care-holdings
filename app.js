@@ -65,6 +65,59 @@
     });
   });
 
-  // Contact form is handled natively via formsubmit.co
+  // Contact form AJAX handling
+  var contactForm = document.getElementById('contactForm');
+  var successModal = document.getElementById('successModal');
+  var closeModalBtn = document.getElementById('closeModalBtn');
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      
+      var btn = document.querySelector('#contactForm button[type="submit"]');
+      var originalText = btn.textContent;
+      btn.textContent = 'SENDING...';
+      btn.disabled = true;
+      btn.style.opacity = '0.6';
+
+      var formData = new FormData(contactForm);
+
+      fetch(contactForm.action, {
+        method: "POST",
+        body: formData,
+        headers: {
+            'Accept': 'application/json'
+        }
+      })
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(data) {
+        // Show modal
+        if (successModal) {
+          successModal.classList.add('active');
+        }
+        
+        // Reset form
+        contactForm.reset();
+        btn.textContent = originalText;
+        btn.disabled = false;
+        btn.style.opacity = '1';
+      })
+      .catch(function(error) {
+        console.error(error);
+        alert("Something went wrong. Please check your email to verify FormSubmit activation.");
+        btn.textContent = originalText;
+        btn.disabled = false;
+        btn.style.opacity = '1';
+      });
+    });
+  }
+
+  if (closeModalBtn && successModal) {
+    closeModalBtn.addEventListener('click', function () {
+      successModal.classList.remove('active');
+    });
+  }
 
 })();
