@@ -65,25 +65,6 @@
     });
   });
 
-  // Contact form
-  var contactForm = document.getElementById('contactForm');
-  window.handleSubmit = function (e) {
-    e.preventDefault();
-    var btn = document.getElementById('submitBtn');
-    var original = btn.textContent;
-    btn.textContent = 'SENDING...';
-    btn.disabled = true;
-    btn.style.opacity = '0.6';
-
-    setTimeout(function () {
-      btn.textContent = '✓ SENT';
-      setTimeout(function () {
-        btn.textContent = original;
-        btn.disabled = false;
-        btn.style.opacity = '1';
-        contactForm.reset();
-      }, 2000);
-    }, 1000);
-  };
+  // Contact form is handled natively via formsubmit.co
 
 })();
