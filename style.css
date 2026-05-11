@@ -472,7 +472,7 @@ img { max-width: 100%; display: block; }
 }
 
 .contact-form-wrapper {
-  background: var(--blue-dark);
+  background: var(--white-05);
   padding: 48px;
   border-radius: 12px;
   border: 1px solid var(--white-10);
